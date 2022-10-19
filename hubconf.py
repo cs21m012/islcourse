@@ -61,7 +61,7 @@ def get_model(train_data_loader=None, n_epochs=10):
 # sample invocation torch.hub.load(myrepo,'get_model_advanced',train_data_loader=train_data_loader,n_epochs=5, force_reload=True)
 def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   model = CS21M012()
-  model.compile(loss='crossentropy', optimizer='SGD', metrics=['accuracy'],lr=lr,config=config)
+  model.compile(loss='crossentropy', optimizer='SGD', metrics=['accuracy'])
   model.fit(trainX, trainy, epochs=300, verbose=0)
 
   # write your code here as per instructions
