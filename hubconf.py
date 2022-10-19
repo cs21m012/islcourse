@@ -97,8 +97,8 @@ def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
 # sample invocation torch.hub.load(myrepo,'test_model',model1=model,test_data_loader=test_data_loader,force_reload=True)
 def test_model(model1=None, test_data_loader=None):
   accuracy_val, precision_val, recall_val, f1score_val = 0, 0, 0, 0
-  yhat_probs = model.predict(testX, verbose=0)
-  yhat_classes = model.predict_classes(testX, verbose=0)
+  yhat_probs = model1.predict(testX, verbose=0)
+  yhat_classes = mode1l.predict_classes(testX, verbose=0)
   yhat_probs = yhat_probs[:, 0]
   yhat_classes = yhat_classes[:, 0]
   accuracy_val = accuracy_score(testy, yhat_classes)
