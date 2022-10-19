@@ -5,6 +5,8 @@ from torch import nn
 import torch
 import torchmetrics
 import torchmetrics.functional
+
+import torch.optim as optim
 from torch import nn
 #from torch.nn import functional as F
 from torch.utils.data import DataLoader
