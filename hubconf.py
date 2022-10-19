@@ -140,7 +140,7 @@ def test_model(model1=None, test_data_loader=None):
 
 
   recall = Recall(testy, yhat_classes)
-  f1score_val = F1(testy, yhat_classes)
+  #f1score_val = F1(testy, yhat_classes)
 
   # write your code here as per instructions
   # ... your code ...
@@ -150,6 +150,6 @@ def test_model(model1=None, test_data_loader=None):
   
   print ('Returning metrics... (rollnumber: CS21M012)')
   
-  return accuracy_val, precision_val, recall_val, f1score_val
+  return accuracy_val, precision_val, recall_val
 
 
