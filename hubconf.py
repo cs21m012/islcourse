@@ -12,6 +12,7 @@ from torch import nn
 from torch.utils.data import DataLoader
 from torch.utils.data import random_split
 from torchvision import transforms
+from torchmetrics.classification import MulticlassF1Score
 
 def kali():
   print ('kali')
@@ -74,26 +75,9 @@ def get_model(train_data_loader=None, n_epochs=10):
 # sample invocation torch.hub.load(myrepo,'get_model_advanced',train_data_loader=train_data_loader,n_epochs=5, force_reload=True)
 def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   model = CS21M012()
-  optim.SGD(model.parameters(), lr = lr)
-  loss_fn = nn.CrossEntropyLoss()
-
-  for e in range(n_epochs):
-        model.train()
-        totalTrainLoss = 0
-        totalValLoss = 0
-        trainCorrect = 0
-        valCorrect = 0
-        for (x, y) in train_data_loader:
-            (x, y) = (x.to(device), y.to(device))
-            pred = model(x)
-            loss = loss_fn(pred, y)
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
-            totalTrainLoss += loss
-            trainCorrect += (pred.argmax(1) == y).type(torch.float).sum().item()
-
-  return model
+  criterion = nn.CrossEntropyLoss()
+  optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+  
  
   # write your code here as per instructions
   # ... your code ...
@@ -142,7 +126,7 @@ def test_model(model1=None, test_data_loader=None):
 
 
   recall = Recall(testy, yhat_classes)
-  #f1score_val = F1(testy, yhat_classes)
+  #f1score_val = F(testy, yhat_classes)
 
   # write your code here as per instructions
   # ... your code ...
