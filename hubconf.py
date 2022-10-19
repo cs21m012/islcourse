@@ -51,7 +51,7 @@ def get_model(train_data_loader=None, n_epochs=10):
   # Use softmax and cross entropy loss functions
   # set model variable to proper object, make use of train_data
   
-  print ('Returning model... (rollnumber: xx)')
+  print ('Returning model... (rollnumber: CS21M012)')
   
   return model
 
@@ -80,7 +80,7 @@ def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   return model
   
   
-  print ('Returning model... (rollnumber: xx)')
+  print ('Returning model... (rollnumber: CS21M012)')
   
   return model
 
