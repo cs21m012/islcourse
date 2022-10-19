@@ -112,7 +112,21 @@ def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
 def test_model(model1=None, test_data_loader=None):
   accuracy_val, precision_val, recall_val, f1score_val = 0, 0, 0, 0
 
-
+  for e in range(n_epochs):
+        model.train()
+        totalTrainLoss = 0
+        totalValLoss = 0
+        trainCorrect = 0
+        valCorrect = 0
+        for (x, y) in train_data_loader:
+            (x, y) = (x.to(device), y.to(device))
+            pred = model(x)
+            loss = loss_fn(pred, y)
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            totalTrainLoss += loss
+            trainCorrect += (pred.argmax(1) == y).type(torch.float).sum().item()
 
 
 
@@ -124,11 +138,11 @@ def test_model(model1=None, test_data_loader=None):
 
 
   
-  accuracy_val = torchmetrics.Accuracy(10)
-  precision_val = torchmetrics.Precision(10)
+  accuracy_val = torchmetrics.Accuracy(pred,10)
+  precision_val = torchmetrics.Precision(pred,10)
 
 
-  recall = torchmetrics.Recall(10)
+  recall = torchmetrics.Recall(pred,10)
   #f1score_val = F(testy, yhat_classes)
 
   # write your code here as per instructions
