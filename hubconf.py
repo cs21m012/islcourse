@@ -1,10 +1,15 @@
-from sklearn.datasets import make_circles
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import precision_score
-from sklearn.metrics import recall_score
-from sklearn.metrics import f1_score
+
 import torch
 from torch import nn
+import pytorch_lightning as pl
+import torch
+import torchmetrics
+import torchmetrics.functional
+from torch import nn
+from torch.nn import functional as F
+from torch.utils.data import DataLoader
+from torch.utils.data import random_split
+from torchvision import transforms
 
 def kali():
   print ('kali')
@@ -21,7 +26,13 @@ class CS21M012(nn.Module):
             nn.ReLU(),
             nn.Linear(512, 10)
         )
-
+    metrics = torchmetrics.MetricCollection([
+            # Accuracy: due to mode multiclass, not multilabel, this uses same formula as Precision
+            torchmetrics.Accuracy(num_classes=10),
+            torchmetrics.Precision(num_classes=10),
+            torchmetrics.Recall(num_classes=10),
+            torchmetrics.F1(num_classes=10),
+        ])
     def forward(self, x):
         x = self.flatten(x)
         logits = self.linear_relu_stack(x)
@@ -108,16 +119,28 @@ def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
 # sample invocation torch.hub.load(myrepo,'test_model',model1=model,test_data_loader=test_data_loader,force_reload=True)
 def test_model(model1=None, test_data_loader=None):
   accuracy_val, precision_val, recall_val, f1score_val = 0, 0, 0, 0
+
+
+
+
+
+
+
+
+
+
+
+
   yhat_probs = model1.predict(testX, verbose=0)
   yhat_classes = mode1l.predict_classes(testX, verbose=0)
   yhat_probs = yhat_probs[:, 0]
   yhat_classes = yhat_classes[:, 0]
-  accuracy_val = accuracy_score(testy, yhat_classes)
-  precision_val = precision_score(testy, yhat_classes)
+  accuracy_val = Accuracy(testy, yhat_classes)
+  precision_val = Precision(testy, yhat_classes)
 
 
-  recall = recall_score(testy, yhat_classes)
-  f1score_val = f1_score(testy, yhat_classes)
+  recall = Recall(testy, yhat_classes)
+  f1score_val = F1(testy, yhat_classes)
 
   # write your code here as per instructions
   # ... your code ...
