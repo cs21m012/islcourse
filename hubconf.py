@@ -76,7 +76,7 @@ def get_model(train_data_loader=None, n_epochs=10):
 def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   model = CS21M012()
   criterion = nn.CrossEntropyLoss()
-  optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+  optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
   
  
   # write your code here as per instructions
