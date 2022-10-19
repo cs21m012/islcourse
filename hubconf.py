@@ -75,7 +75,7 @@ def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   optim.SGD(model.parameters(), lr = lr)
   loss_fn = nn.CrossEntropyLoss()
 
-    for e in range(n_epochs):
+  for e in range(n_epochs):
         model.train()
         totalTrainLoss = 0
         totalValLoss = 0
@@ -91,7 +91,7 @@ def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
             totalTrainLoss += loss
             trainCorrect += (pred.argmax(1) == y).type(torch.float).sum().item()
 
-    return model
+   return model
  
   # write your code here as per instructions
   # ... your code ...
