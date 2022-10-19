@@ -6,7 +6,7 @@ import torch
 import torchmetrics
 import torchmetrics.functional
 from torch import nn
-from torch.nn import functional as F
+#from torch.nn import functional as F
 from torch.utils.data import DataLoader
 from torch.utils.data import random_split
 from torchvision import transforms
@@ -31,7 +31,7 @@ class CS21M012(nn.Module):
             torchmetrics.Accuracy(num_classes=10),
             torchmetrics.Precision(num_classes=10),
             torchmetrics.Recall(num_classes=10),
-            torchmetrics.F(num_classes=10),
+            #torchmetrics.F(num_classes=10),
         ])
     def forward(self, x):
         x = self.flatten(x)
