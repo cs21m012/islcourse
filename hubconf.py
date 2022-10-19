@@ -124,11 +124,11 @@ def test_model(model1=None, test_data_loader=None):
 
 
   
-  accuracy_val = Accuracy(testy,10)
-  precision_val = Precision(testy, 10)
+  accuracy_val = torchmetrics.Accuracy(10)
+  precision_val = torchmetrics.Precision(10)
 
 
-  recall = Recall(testy, yhat_classes)
+  recall = torchmetrics.Recall(testy, yhat_classes)
   #f1score_val = F(testy, yhat_classes)
 
   # write your code here as per instructions
