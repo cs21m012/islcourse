@@ -42,7 +42,13 @@ class CS21M012(nn.Module):
         return logits
 
 	
-      
+metrics = torchmetrics.MetricCollection([
+            # Accuracy: due to mode multiclass, not multilabel, this uses same formula as Precision
+            torchmetrics.Accuracy(num_classes=10),
+            torchmetrics.Precision(num_classes=10),
+            torchmetrics.Recall(num_classes=10),
+            #torchmetrics.F(num_classes=10),
+        ])     
 
   # ... your code ...
   # ... write init and forward functions appropriately ...
