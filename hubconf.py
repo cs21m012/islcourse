@@ -31,7 +31,7 @@ class CS21M012(nn.Module):
             torchmetrics.Accuracy(num_classes=10),
             torchmetrics.Precision(num_classes=10),
             torchmetrics.Recall(num_classes=10),
-            torchmetrics.F1(num_classes=10),
+            torchmetrics.F(num_classes=10),
         ])
     def forward(self, x):
         x = self.flatten(x)
