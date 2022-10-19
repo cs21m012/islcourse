@@ -117,12 +117,9 @@ def test_model(model1=None, test_data_loader=None):
 
 
 
-  yhat_probs = model1.predict(testX, verbose=0)
-  yhat_classes = mode1l.predict_classes(testX, verbose=0)
-  yhat_probs = yhat_probs[:, 0]
-  yhat_classes = yhat_classes[:, 0]
-  accuracy_val = Accuracy(testy, yhat_classes)
-  precision_val = Precision(testy, yhat_classes)
+  
+  accuracy_val = Accuracy(testy,10)
+  precision_val = Precision(testy, 10)
 
 
   recall = Recall(testy, yhat_classes)
