@@ -62,7 +62,14 @@ def get_model(train_data_loader=None, n_epochs=10):
 def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   model = CS21M012()
   #model.compile(loss='crossentropy', optimizer='SGD', metrics=['accuracy'])
-  model.fit(trainX, trainy, epochs=300, verbose=0)
+  
+
+
+  error = nn.CrossEntropyLoss()
+
+  learning_rate = le-4
+  optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+  
 
   # write your code here as per instructions
   # ... your code ...
@@ -80,7 +87,7 @@ def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   
   # HINT: You can print sizes of tensors to get an idea of the size of the fc layer required
   # HINT: Flatten function can also be used if required
-  return model
+  
   
   
   print ('Returning model... (rollnumber: CS21M012)')
