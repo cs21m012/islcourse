@@ -61,16 +61,27 @@ def get_model(train_data_loader=None, n_epochs=10):
 # sample invocation torch.hub.load(myrepo,'get_model_advanced',train_data_loader=train_data_loader,n_epochs=5, force_reload=True)
 def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   model = CS21M012()
-  #model.compile(loss='crossentropy', optimizer='SGD', metrics=['accuracy'])
-  
+  optim.SGD(model.parameters(), lr = lr)
+  loss_fn = nn.CrossEntropyLoss()
 
+    for e in range(n_epochs):
+        model.train()
+        totalTrainLoss = 0
+        totalValLoss = 0
+        trainCorrect = 0
+        valCorrect = 0
+        for (x, y) in train_data_loader:
+            (x, y) = (x.to(device), y.to(device))
+            pred = model(x)
+            loss = loss_fn(pred, y)
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            totalTrainLoss += loss
+            trainCorrect += (pred.argmax(1) == y).type(torch.float).sum().item()
 
-  error = nn.CrossEntropyLoss()
-
-  learning_rate = lr
-  optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
-  
-
+    return model
+ 
   # write your code here as per instructions
   # ... your code ...
   # ... your code ...
