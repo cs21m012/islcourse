@@ -136,8 +136,8 @@ def test_model(model1=None, test_data_loader=None):
           labels = Variable(labels)
         
         # Forward pass 
-           outputs = model(train)
-           loss = error(outputs, labels)
+          outputs = model(train)
+          loss = error(outputs, labels)
         
         # Initializing a gradient as 0 so there is no mixing of gradient among the batches
            optimizer.zero_grad()
