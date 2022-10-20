@@ -166,10 +166,10 @@ def test_model(model1=None, test_data_loader=None):
                 correct += (predictions == labels).sum()
             
                 total += len(labels)
-           accuracy = correct * 100 / total
-           loss_list.append(loss.data)
-           iteration_list.append(count)
-           accuracy_list.append(accuracy) 
+            accuracy = correct * 100 / total
+            loss_list.append(loss.data)
+            iteration_list.append(count)
+            accuracy_list.append(accuracy) 
         
    #if not (count % 500):
             #print("Iteration: {}, Loss: {}, Accuracy: {}%".format(count, loss.data, accuracy))
