@@ -81,7 +81,12 @@ def get_model(train_data_loader=None, n_epochs=10):
 # sample invocation torch.hub.load(myrepo,'get_model_advanced',train_data_loader=train_data_loader,n_epochs=5, force_reload=True)
 def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   model = CS21M012()
-  
+ 
+
+  error = nn.CrossEntropyLoss()
+
+  learning_rate = 0.001
+  optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
   
  
   # write your code here as per instructions
