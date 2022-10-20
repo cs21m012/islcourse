@@ -187,7 +187,7 @@ def test_model(model1=None, test_data_loader=None):
   # ... and so on ...
   # calculate accuracy, precision, recall and f1score
   
-  print ('Returning metrics... (rollnumber: CS21M012)')
+  #print ('Returning metrics... (rollnumber: CS21M012)')
   
   return accuracy_list
 
