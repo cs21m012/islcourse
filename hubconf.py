@@ -189,6 +189,6 @@ def test_model(model1=None, test_data_loader=None):
   
   #print ('Returning metrics... (rollnumber: CS21M012)')
   
- return accuracy_list
+   return accuracy_list
 
 
