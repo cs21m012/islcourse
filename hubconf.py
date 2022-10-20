@@ -172,6 +172,7 @@ def test_model(model1=None, test_data_loader=None):
             accuracy_list.append(accuracy) 
         
           if not (count % 500):
+            return accuracy_list
             #print("Iteration: {}, Loss: {}, Accuracy: {}%".format(count, loss.data, accuracy))
   
   #accuracy_val = torchmetrics.Accuracy(10)
