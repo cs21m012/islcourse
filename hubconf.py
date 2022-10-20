@@ -140,10 +140,10 @@ def test_model(model1=None, test_data_loader=None):
           loss = error(outputs, labels)
         
         # Initializing a gradient as 0 so there is no mixing of gradient among the batches
-           optimizer.zero_grad()
+          optimizer.zero_grad()
         
         #Propagating the error backward
-           loss.backward()
+          loss.backward()
         
         # Optimizing the parameters
           optimizer.step()
