@@ -86,13 +86,7 @@ def test_model(model1=None, test_data=None):
         predicted, actual = classes[pred[0].argmax(0)], classes[y]
         #print(f'Predicted: "{predicted}", Actual: "{actual}"')
         
-  # write your code here as per instructions
-  # ... your code ...
-  # ... your code ...
-  # ... and so on ...
-  # calculate accuracy, precision, recall and f1score
-  
-    print ('Returning metrics... (rollnumber: xx)')
+    print('Returning metrics... (rollnumber: xx)')
   
     return predicted,actual
 
