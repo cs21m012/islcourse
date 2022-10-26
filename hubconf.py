@@ -92,8 +92,8 @@ def test_model(model1=None, test_data=None):
   # ... and so on ...
   # calculate accuracy, precision, recall and f1score
   
-  print ('Returning metrics... (rollnumber: xx)')
+    print ('Returning metrics... (rollnumber: xx)')
   
-  return predicted,actual
+    return predicted,actual
 
 
