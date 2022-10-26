@@ -10,14 +10,14 @@ class CS21M012(nn.Module):
         super(CS21M012, self).__init__()
         self.flatten = nn.Flatten()
         self.linear=nn.Linear(28*28,10)
-        self.softmax=nn.Softmax()
+        self.softmax=Softmax()
     
   def forward(self, x):
        x = self.flatten(x)
        x= self.linear(x)
        
-       logits = self.softmax(x)
-       return logits
+      
+       return x
 
   
   # ... your code ...
