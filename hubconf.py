@@ -32,9 +32,9 @@ def get_model(train_data_loader=None, n_epochs=10):
   input_size=trainX.shape[1]
 
   model = Sequential([
-                    Dense(200, input_shape=(input_size,), activation="relu"),
-                    Dense(10, activation='relu'),
-                    Dense(10, activation="cross_entropy"),
+                    Flatten(input_shape=(28*28*1)),
+                    Flatten(output_shape=(10)),
+                    Dense(784, activation="cross_entropy"),
                     Dense(10,activation="softmax")])
   return model
   # write your code here as per instructions
