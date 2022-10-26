@@ -26,13 +26,13 @@ class CS21M012(nn.Module):
     
 # sample invocation torch.hub.load(myrepo,'get_model',train_data_loader=train_data_loader,n_epochs=5, force_reload=True)
 def get_model(train_data_loader=None, n_epochs=10):
-  model = CS21M012()
-  input_size=trainX.shape[1]
-  model = Sequential([
+   model = CS21M012()
+   input_size=trainX.shape[1]
+   model = Sequential([
                     Dense(200, input_shape=(input_size,), activation="relu"),
                     Dense(200, activation='relu'),
                     Dense(10, activation="softmax")])
-  return model
+   return model
   
   # write your code here as per instructions
   # ... your code ...
@@ -42,8 +42,7 @@ def get_model(train_data_loader=None, n_epochs=10):
   # set model variable to proper object, make use of train_data
   
   print ('Returning model... (rollnumber: xx)')
-  
-  return model
+ 
 
 # sample invocation torch.hub.load(myrepo,'get_model_advanced',train_data_loader=train_data_loader,n_epochs=5, force_reload=True)
 def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
