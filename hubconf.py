@@ -35,7 +35,7 @@ def get_model(train_data_loader=None, n_epochs=10):
                     Dense(200, input_shape=(input_size,), activation="relu"),
                     Dense(10, activation='relu'),
                     Dense(10, activation="cross_entropy"),
-                    Dense(10,activation="softmax"])
+                    Dense(10,activation="softmax")])
   return model
   # write your code here as per instructions
   # ... your code ...
