@@ -7,6 +7,7 @@ def kali():
 # Define a neural network YOUR ROLL NUMBER (all small letters) should prefix the classname
 class CS21M012(nn.Module):
   def __init__(self):
+        super(CS21M012, self).__init__()
         self.flatten = nn.Flatten()
         self.linear_relu_stack = nn.Sequential(
             nn.Linear(28*28, 512),
@@ -15,24 +16,25 @@ class CS21M012(nn.Module):
             nn.ReLU(),
             nn.Linear(512, 10)
         )
-
+    
   def forward(self, x):
-        x = self.flatten(x)
-        logits = self.linear_relu_stack(x)
-        return logits
+       x = self.flatten(x)
+       logits = self.linear_relu_stack(x)
+       return logits
+
   
   # ... your code ...
   # ... write init and forward functions appropriately ...
     
 # sample invocation torch.hub.load(myrepo,'get_model',train_data_loader=train_data_loader,n_epochs=5, force_reload=True)
 def get_model(train_data_loader=None, n_epochs=10):
-   model = CS21M012()
-   input_size=trainX.shape[1]
-   model = Sequential([
+  model = CS21M012()
+  input_size=trainX.shape[1]
+  model = Sequential([
                     Dense(200, input_shape=(input_size,), activation="relu"),
                     Dense(200, activation='relu'),
                     Dense(10, activation="softmax")])
-   return model
+  return model
   
   # write your code here as per instructions
   # ... your code ...
@@ -41,7 +43,9 @@ def get_model(train_data_loader=None, n_epochs=10):
   # Use softmax and cross entropy loss functions
   # set model variable to proper object, make use of train_data
   
- 
+  print ('Returning model... (rollnumber: xx)')
+  
+  return model
 
 # sample invocation torch.hub.load(myrepo,'get_model_advanced',train_data_loader=train_data_loader,n_epochs=5, force_reload=True)
 def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
@@ -69,7 +73,7 @@ def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   # HINT: Flatten function can also be used if required
 
   
-  
+  print ('Returning model... (rollnumber: xx)')
  
 
 # sample invocation torch.hub.load(myrepo,'test_model',model1=model,test_data_loader=test_data_loader,force_reload=True)
@@ -96,5 +100,4 @@ def test_model(model1=None, test_data=None):
     print('Returning metrics... (rollnumber: xx)')
   
     return predicted,actual
-
 
