@@ -71,7 +71,7 @@ def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   # HINT: Flatten function can also be used if required
 
   
-  print ('Returning model... (rollnumber: xx)')
+  
  
 
 # sample invocation torch.hub.load(myrepo,'test_model',model1=model,test_data_loader=test_data_loader,force_reload=True)
