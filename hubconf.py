@@ -41,7 +41,6 @@ def get_model(train_data_loader=None, n_epochs=10):
   # Use softmax and cross entropy loss functions
   # set model variable to proper object, make use of train_data
   
-  print ('Returning model... (rollnumber: xx)')
  
 
 # sample invocation torch.hub.load(myrepo,'get_model_advanced',train_data_loader=train_data_loader,n_epochs=5, force_reload=True)
