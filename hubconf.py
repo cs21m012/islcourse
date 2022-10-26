@@ -1,22 +1,28 @@
 import torch
 from torch import nn
-import torch.nn.functional as F
+
 def kali():
   print ('kali')
   
 # Define a neural network YOUR ROLL NUMBER (all small letters) should prefix the classname
 class CS21M012(nn.Module):
   def __init__(self):
-        super().__init__()
-        self.m = nn.Softmax(dim =1)
-        self.fc1 = nn.Linear(28*28*1, 120)
-        self.fc2 = nn.Linear(120, 10)
-
+        super(CS21M012, self).__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28*28, 512),
+            nn.ReLU(),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            nn.Linear(512, 10)
+        )
+    
   def forward(self, x):
-        x = torch.flatten(x, 1) # flatten all dimensions except batch
-        x = F.relu(self.fc1(x))
-        x = self.fc2(x)
-        x = self.m(x)
+       x = self.flatten(x)
+       logits = self.linear_relu_stack(x)
+       return logits
+
+  
   # ... your code ...
   # ... write init and forward functions appropriately ...
     
@@ -94,4 +100,3 @@ def test_model(model1=None, test_data=None):
     print('Returning metrics... (rollnumber: xx)')
   
     return predicted,actual
-
