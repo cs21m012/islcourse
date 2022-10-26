@@ -17,12 +17,12 @@ class CS21M012(nn.Module):
             nn.Linear(512, 10)
         )
     
-    def forward(self, x):
-        x = self.flatten(x)
-        logits = self.linear_relu_stack(x)
-        return logits
+  def forward(self, x):
+       x = self.flatten(x)
+       logits = self.linear_relu_stack(x)
+       return logits
 
-  pass
+  
   # ... your code ...
   # ... write init and forward functions appropriately ...
     
