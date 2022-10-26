@@ -78,7 +78,18 @@ def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
 
 # sample invocation torch.hub.load(myrepo,'test_model',model1=model,test_data_loader=test_data_loader,force_reload=True)
 def test_model(model1=None, test_data=None):
-
+    classes = [
+    "T-shirt/top",
+    "Trouser",
+    "Pullover",
+    "Dress",
+    "Coat",
+    "Sandal",
+    "Shirt",
+    "Sneaker",
+    "Bag",
+    "Ankle boot",
+]
     model1.eval()
     x, y = test_data[0][0], test_data[0][1]
     with torch.no_grad():
