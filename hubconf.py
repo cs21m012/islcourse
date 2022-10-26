@@ -51,7 +51,7 @@ def get_model(train_data_loader=None, n_epochs=10):
 def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   model = CS21M012()
   loss_fn = nn.CrossEntropyLoss()
-  optimizer = torch.optim.SGD(mymodel.parameters(), lr=1e-3)
+  optimizer = torch.optim.SGD(CS21M012().parameters(), lr=1e-3)
   return model
 
 
