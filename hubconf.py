@@ -30,13 +30,12 @@ class CS21M012(nn.Module):
 def get_model(train_data_loader=None, n_epochs=10):
   model = CS21M012()
   input_size=trainX.shape[1]
-
   model = Sequential([
-                    Flatten(input_shape=(28*28*1)),
-                    Flatten(output_shape=(10)),
-                    Dense(784, activation="cross_entropy"),
-                    Dense(10,activation="softmax")])
+                    Dense(200, input_shape=(input_size,), activation="relu"),
+                    Dense(200, activation='relu'),
+                    Dense(10, activation="softmax")])
   return model
+  
   # write your code here as per instructions
   # ... your code ...
   # ... your code ...
@@ -50,7 +49,11 @@ def get_model(train_data_loader=None, n_epochs=10):
 
 # sample invocation torch.hub.load(myrepo,'get_model_advanced',train_data_loader=train_data_loader,n_epochs=5, force_reload=True)
 def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
-  model = None
+  model = CS21M012()
+  loss_fn = nn.CrossEntropyLoss()
+  optimizer = torch.optim.SGD(mymodel.parameters(), lr=1e-3)
+  return model
+
 
   # write your code here as per instructions
   # ... your code ...
@@ -68,12 +71,10 @@ def get_model_advanced(train_data_loader=None, n_epochs=10,lr=1e-4,config=None):
   
   # HINT: You can print sizes of tensors to get an idea of the size of the fc layer required
   # HINT: Flatten function can also be used if required
-  return model
-  
+
   
   print ('Returning model... (rollnumber: xx)')
-  
-  return model
+ 
 
 # sample invocation torch.hub.load(myrepo,'test_model',model1=model,test_data_loader=test_data_loader,force_reload=True)
 def test_model(model1=None, test_data_loader=None):
