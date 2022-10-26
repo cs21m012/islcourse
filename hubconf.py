@@ -7,18 +7,19 @@ def kali():
 # Define a neural network YOUR ROLL NUMBER (all small letters) should prefix the classname
 class CS21M012(nn.Module):
   def __init__(self):
-        super(CS21M012, self).__init__()
-        self.flatten = nn.Flatten()
-        self.linear=nn.Linear(28*28,10)
-        
-    
-  def forward(self, x):
-       x = self.flatten(x)
-       x= self.linear(x)
-       
-      
-       return x
+         self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28*28, 512),
+            nn.ReLU(),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            nn.Linear(512, 10)
+        )
 
+  def forward(self, x):
+        x = self.flatten(x)
+        logits = self.linear_relu_stack(x)
+        return logits
   
   # ... your code ...
   # ... write init and forward functions appropriately ...
