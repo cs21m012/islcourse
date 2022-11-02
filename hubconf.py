@@ -67,19 +67,20 @@ train_loader, test_loader = create_dataloaders(training_data, test_data, batch_s
 class cs21m001(nn.Module):
     def __init__(self):
         super().__init__()
-        self.m = nn.Softmax(dim =1)
-        self.fc1 = nn.Linear(28*28*1, 120)
-        self.fc2 = nn.Linear(120, 10)
-
+        
+       
+        self.fc1 = nn.Linear(120, 10)
+        self.m=nn.Softmax(dim=1)
+			  
     def forward(self, x):
         x = torch.flatten(x, 1) # flatten all dimensions except batch
-        x = F.relu(self.fc1(x))
-        x = self.fc2(x)
+        #x = F.relu(self.fc1(x))
+        x = self.fc1(x)
         x = self.m(x)
         return x
 
 y = (len(set([y for x,y in training_data])))
-model = cs21m001()
+model = cs21m012()
 
 #train the network
 def train_network(train_loader, optimizer,criteria, e):
@@ -118,14 +119,14 @@ def loss_fun(y_pred, y_ground):
   return v
 
 x,y = training_data[0]
-model = cs21m001()
+model = cs21m012()
 y_pred = model(x)
 print(y_pred.shape)
 print(y_pred)
 print(torch.sum(y_pred))
 #cross_entropy(10,y_pred)
 
-y_ground = y
+y_ground = torch.nn.functional.one_hot(torch.arange(0,9),num_classes=10)
 loss_val = loss_fun(y_pred, y_ground)
 print(loss_val)
 
@@ -135,7 +136,7 @@ print(loss_val)
 
 #write the get model
 def get_model(train_loader,e = 10):
-	model = cs21m001()
+	model = cs21m012()
 	optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
 	criteria = loss_fun
 	train_network(train_loader, optimizer,criteria,e)
