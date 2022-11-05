@@ -64,7 +64,7 @@ print (len(set([y for x,y in training_data])))
 
 train_loader, test_loader = create_dataloaders(training_data, test_data, batch_size = 32)
 
-class cs21m001(nn.Module):
+class cs21m012(nn.Module):
     def __init__(self):
         super().__init__()
         
