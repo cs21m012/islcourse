@@ -69,7 +69,7 @@ class cs21m012(nn.Module):
         super().__init__()
         
        
-        self.fc1 = nn.Linear(120, 10)
+        self.fc1 = nn.Linear(784, 10)
         self.m=nn.Softmax(dim=1)
 			  
     def forward(self, x):
