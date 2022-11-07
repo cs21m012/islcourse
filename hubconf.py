@@ -128,7 +128,7 @@ from sklearn.metrics import precision_recall_fscore_support
 from torchmetrics.classification import accuracy
 from torchmetrics import Precision, Recall, F1Score, Accuracy
 
-def test(dataloader, model, loss_fn):
+def test_model(dataloader, model, loss_fn):
     size = len(dataloader.dataset)
     num_batches = len(dataloader)
     model.eval()
