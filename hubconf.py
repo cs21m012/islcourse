@@ -128,7 +128,7 @@ from sklearn.metrics import precision_recall_fscore_support
 from torchmetrics.classification import accuracy
 from torchmetrics import Precision, Recall, F1Score, Accuracy
 
-def test_model(dataloader, model, loss_fn):
+def test_model( model,test_data_loader, loss_fun):
     size = len(dataloader.dataset)
     num_batches = len(dataloader)
     model.eval()
@@ -138,7 +138,7 @@ def test_model(dataloader, model, loss_fn):
             
             tmp = torch.nn.functional.one_hot(y, num_classes= 10)
             pred = model(X)
-            test_loss += loss_fn(pred, tmp).item()
+            test_loss += loss_fun(pred, tmp).item()
             correct += (pred.argmax(1) == y).type(torch.float).sum().item()
     test_loss /= num_batches
     correct /= size
