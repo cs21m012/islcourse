@@ -129,8 +129,8 @@ from torchmetrics.classification import accuracy
 from torchmetrics import Precision, Recall, F1Score, Accuracy
 
 def test_model( model,test_data_loader):
-    size = len(dataloader.dataset)
-    num_batches = len(dataloader)
+    size = len(test_data_loader.dataset)
+    num_batches = len(test_data_loader)
     model.eval()
     test_loss, correct = 0, 0
     loss_fn=loss_fun
