@@ -135,7 +135,7 @@ def test_model( model,test_data_loader):
     test_loss, correct = 0, 0
     loss_fn=loss_fun
     with torch.no_grad():
-        for X, y in dataloader:
+        for X, y in test_data_loader:
             
             tmp = torch.nn.functional.one_hot(y, num_classes= 10)
             pred = model(X)
