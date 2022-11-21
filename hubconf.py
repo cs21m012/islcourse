@@ -1,4 +1,3 @@
-# kali
 import torch
 from torch import nn
 import torch.optim as optim
@@ -6,7 +5,7 @@ from sklearn.datasets import make_circles
 from sklearn.datasets import make_blobs
 from sklearn.datasets import load_digits
 import sklearn.cluster as skl_cluster
-import sklearn.datasets.samples_generator as skl_smpl
+
 from sklearn.metrics.cluster import completeness_score
 from sklearn.metrics.cluster import homogeneity_score
 from sklearn.metrics.cluster import v_measure_score
@@ -31,28 +30,28 @@ def get_data_circles(n_points=100):
   X,y = make_circles(n_samples=n_points,noise=0.05)
   # write your code here
   # Refer to sklearn data sets
-  X, y = None
+ 
   # write your code ...
   return X,y
 
 def get_data_mnist():
   from sklearn.datasets import load_digits
   X,y= load_digits()
-  pass
+  
   
   # write your code ...
   return X,y
 
 def build_kmeans(X=None,k=10):
   Km = skl_cluster.KMeans(n_clusters=k)
-  Km.fit(data)
+  Km.fit(X)
   
  
   # k is a variable, calling function can give a different number
   # Refer to sklearn KMeans method
   # this is the KMeans object
   # write your code ...
-  return km
+  return Km
 
 def assign_kmeans(km=None,X=None):
   ypred = km.predict(X)
@@ -67,7 +66,6 @@ def compare_clusterings(ypred_1=None,ypred_2=None):
   # refer to sklearn documentation for homogeneity, completeness and vscore
   #h,c,v = 0,0,0 # you need to write your code to find proper values
   return h,c,v
-
 ###### PART 2 ######
 
 def build_lr_model(X=None, y=None):
