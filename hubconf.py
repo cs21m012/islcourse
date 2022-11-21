@@ -120,7 +120,15 @@ def get_paramgrid_rf():
   # n_estimators: 1, 10, 100
   # criterion: gini, entropy
   # maximum depth: 1, 10, None  
-  rf_param_grid = None
+  parameters2= {
+    
+    'max_depth': [1,10,None],
+    'n_estimators'=[1,10,100],
+    'criterion': ['gini', 'entropy']
+    
+}
+  rf_param_grid = dict(max_depth=max_depth, n_estimators=n_estimators,criterion=criterion)
+
   # refer to sklearn documentation on grid search and random forest classifier
   # write your code here...
   return rf_param_grid
@@ -132,8 +140,15 @@ def perform_gridsearch_cv_multimetric(model=None, param_grid=None, cv=5, X=None,
   # the cv parameter can change, ie number of folds  
   
   # metrics = [] the evaluation program can change what metrics to choose
+  if X.ndim > 2:
+      n_samples = len(X)
+      X= X.reshape((n_samples, -1))
+      
+  for score in metrics:
+      grid_search_cv = GridSearchCV(model1,param_grid,scoring = score,cv=cv)
+      grid_search_cv.fit(X,y)
+      top1_scores.append(grid_search_cv.best_estimator_.get_params())
   
-  grid_search_cv = None
   # create a grid search cv object
   # fit the object on X and y input above
   # write your code here...
