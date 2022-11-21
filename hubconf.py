@@ -10,7 +10,7 @@ from sklearn.metrics.cluster import completeness_score
 from sklearn.metrics.cluster import homogeneity_score
 from sklearn.metrics.cluster import v_measure_score
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import LogisticRegression
+from sklearn.linear_model import LogisticRegression
 # You can import whatever standard packages are required
 #
 # full sklearn, full pytorch, pandas, matplotlib, numpy are all available
