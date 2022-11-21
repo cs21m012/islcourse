@@ -40,24 +40,23 @@ def get_data_mnist():
   return X,y
 
 def build_kmeans(X=None,k=10):
-  kmeans = KMeans(n_clusters=k, random_state=0).fit(X)
-  pass
+  Km = skl_cluster.KMeans(n_clusters=k)
+  Km.fit(data)
+  
+ 
   # k is a variable, calling function can give a different number
   # Refer to sklearn KMeans method
-  km = None # this is the KMeans object
+  # this is the KMeans object
   # write your code ...
   return km
 
 def assign_kmeans(km=None,X=None):
-  pass
-  # For each of the points in X, assign one of the means
-  # refer to predict() function of the KMeans in sklearn
-  # write your code ...
-  ypred = None
+  ypred = km.predict(X)
   return ypred
 
 def compare_clusterings(ypred_1=None,ypred_2=None):
-  pass
+  
+  h,c,v=sklearn.metrics.homogeneity_completeness_v_measure(ypred1, ypred2)
   # refer to sklearn documentation for homogeneity, completeness and vscore
   h,c,v = 0,0,0 # you need to write your code to find proper values
   return h,c,v
