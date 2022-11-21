@@ -93,16 +93,15 @@ def get_metrics(model=None,X=None,y=None):
   
   y_pred = model.predict(X)
   acc = accuracy_score(y, y_pred)
-  print('Accuracy: %f' % accuracy)
-  # precision tp / (tp + fp)
+ 
   prec = precision_score(y, y_pred)
-  print('Precision: %f' % precision)
+  
   # recall: tp / (tp + fn)
   rec = recall_score(y, y_pred)
-  print('Recall: %f' % recall)
+  
   # f1: 2 tp / (2 tp + fp + fn)
   f1 = f1_score(y, y_pred)
-  print('F1 score: %f' % f1)
+  
   # Obtain accuracy, precision, recall, f1score, auc score - refer to sklearn metrics
   #acc, prec, rec, f1, auc = 0,0,0,0,0
   # write your code here...
