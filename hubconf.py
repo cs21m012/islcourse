@@ -140,12 +140,13 @@ def perform_gridsearch_cv_multimetric(model=None, param_grid=None, cv=5, X=None,
   # the cv parameter can change, ie number of folds  
   
   # metrics = [] the evaluation program can change what metrics to choose
+  top1_scores = []
+  le = len(X)
   if X.ndim > 2:
-      n_samples = len(X)
-      X= X.reshape((n_samples, -1))
+      X= X.reshape((le, -1))
       
-  for score in metrics:
-      grid_search_cv = GridSearchCV(model1,param_grid,scoring = score,cv=cv)
+  for i in metrics:
+      grid_search_cv = GridSearchCV(model1,param_grid,scoring = i,cv=cv)
       grid_search_cv.fit(X,y)
       top1_scores.append(grid_search_cv.best_estimator_.get_params())
   
@@ -158,7 +159,7 @@ def perform_gridsearch_cv_multimetric(model=None, param_grid=None, cv=5, X=None,
   # refer to cv_results_ dictonary
   # return top 1 score for each of the metrics given, in the order given in metrics=... list
   
-  top1_scores = []
+ 
   
   return top1_scores
 
