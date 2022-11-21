@@ -102,7 +102,7 @@ def get_metrics(model=None,X=None,y=None):
   
   # f1: 2 tp / (2 tp + fp + fn)
   f1 = f1_score(y, y_pred)
-  
+  auc=0
   # Obtain accuracy, precision, recall, f1score, auc score - refer to sklearn metrics
   #acc, prec, rec, f1, auc = 0,0,0,0,0
   # write your code here...
