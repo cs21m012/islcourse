@@ -110,7 +110,9 @@ def get_metrics(model=None,X=None,y=None):
 def get_paramgrid_lr():
   # you need to return parameter grid dictionary for use in grid search cv
   # penalty: l1 or l2
-  lr_param_grid = None
+  lr_param_grid={"penalty":["l1","l2"]}
+  
+
   # refer to sklearn documentation on grid search and logistic regression
   # write your code here...
   return lr_param_grid
@@ -120,14 +122,14 @@ def get_paramgrid_rf():
   # n_estimators: 1, 10, 100
   # criterion: gini, entropy
   # maximum depth: 1, 10, None  
-  parameters2= {
+  rf_param_grid= {
     
     'max_depth': [1,10,None],
     'n_estimators'=[1,10,100],
     'criterion': ['gini', 'entropy']
     
 }
-  rf_param_grid = dict(max_depth=max_depth, n_estimators=n_estimators,criterion=criterion)
+  
 
   # refer to sklearn documentation on grid search and random forest classifier
   # write your code here...
