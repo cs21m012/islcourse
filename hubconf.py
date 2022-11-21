@@ -44,7 +44,7 @@ def get_data_mnist():
 
 def build_kmeans(X=None,k=10):
   Km = skl_cluster.KMeans(n_clusters=k)
-  Km.fit(data)
+  Km.fit(X)
   
  
   # k is a variable, calling function can give a different number
