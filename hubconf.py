@@ -7,6 +7,8 @@ from sklearn.datasets import make_blobs
 from sklearn.datasets import load_digits
 import sklearn.cluster as skl_cluster
 import sklearn.datasets.samples_generator as skl_smpl
+from sklearn.metrics.cluster import completeness_score
+from sklearn.metrics.homogeneity_completeness_v_measure(ypred1, ypred2)
 # You can import whatever standard packages are required
 
 # full sklearn, full pytorch, pandas, matplotlib, numpy are all available
@@ -58,7 +60,7 @@ def compare_clusterings(ypred_1=None,ypred_2=None):
   
   h,c,v=sklearn.metrics.homogeneity_completeness_v_measure(ypred1, ypred2)
   # refer to sklearn documentation for homogeneity, completeness and vscore
-  h,c,v = 0,0,0 # you need to write your code to find proper values
+  #h,c,v = 0,0,0 # you need to write your code to find proper values
   return h,c,v
 
 ###### PART 2 ######
