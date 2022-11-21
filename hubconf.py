@@ -73,8 +73,23 @@ from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import f1_score
 from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import fetch_openml
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+# Fetching MNIST Dataset
+mnist = fetch_openml('mnist_784', version=1)
+
+# Get the data and target
+
+
 def get_data_mnist():
-  X,y = load_digits(return_X_y=True)
+  mnist = fetch_openml('mnist_784', version=1)
+
+# Get the data and target
+  X, y = mnist["data"], mnist["target"]
+
+  
   #print(X.shape)
   return X,y
 def build_lr_model(X=None, y=None):
@@ -90,9 +105,9 @@ def build_rf_model(X=None, y=None):
   # Build Random Forest classifier, refer to sklearn
   return rf_model
 
-def get_metrics(model=None,X=None,y=None):
+def get_metrics(model1=None,X=None,y=None):
   
-  y_pred = model.predict(X)
+  y_pred = model1.predict(X)
   acc = accuracy_score(y, y_pred)
  
   prec = precision_score(y, y_pred)
