@@ -8,7 +8,9 @@ from sklearn.datasets import load_digits
 import sklearn.cluster as skl_cluster
 import sklearn.datasets.samples_generator as skl_smpl
 from sklearn.metrics.cluster import completeness_score
-from sklearn.metrics.homogeneity_completeness_v_measure(ypred1, ypred2)
+from sklearn.metrics.cluster import homogeneity_score
+from sklearn.metrics.cluster import v_measure_score
+
 # You can import whatever standard packages are required
 
 # full sklearn, full pytorch, pandas, matplotlib, numpy are all available
@@ -57,8 +59,11 @@ def assign_kmeans(km=None,X=None):
   return ypred
 
 def compare_clusterings(ypred_1=None,ypred_2=None):
+  h = homogeneity_score(ypred_1,ypred_2)
+  c = completeness_score(ypred_1,ypred_2)
+  v = v_measure_score(ypred_1,ypred_2)
   
-  h,c,v=sklearn.metrics.homogeneity_completeness_v_measure(ypred1, ypred2)
+  #h,c,v=sklearn.metrics.homogeneity_completeness_v_measure(ypred1, ypred2)
   # refer to sklearn documentation for homogeneity, completeness and vscore
   #h,c,v = 0,0,0 # you need to write your code to find proper values
   return h,c,v
