@@ -5,7 +5,8 @@ import torch.optim as optim
 from sklearn.datasets import make_circles
 from sklearn.datasets import make_blobs
 from sklearn.datasets import load_digits
-
+import sklearn.cluster as skl_cluster
+import sklearn.datasets.samples_generator as skl_smpl
 # You can import whatever standard packages are required
 
 # full sklearn, full pytorch, pandas, matplotlib, numpy are all available
@@ -39,6 +40,7 @@ def get_data_mnist():
   return X,y
 
 def build_kmeans(X=None,k=10):
+  kmeans = KMeans(n_clusters=k, random_state=0).fit(X)
   pass
   # k is a variable, calling function can give a different number
   # Refer to sklearn KMeans method
