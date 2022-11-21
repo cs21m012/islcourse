@@ -5,10 +5,11 @@ from sklearn.datasets import make_circles
 from sklearn.datasets import make_blobs
 from sklearn.datasets import load_digits
 import sklearn.cluster as skl_cluster
-
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics.cluster import completeness_score
 from sklearn.metrics.cluster import homogeneity_score
 from sklearn.metrics.cluster import v_measure_score
+from sklearn.linear_model import LogisticRegression
 
 # You can import whatever standard packages are required
 #
@@ -67,25 +68,43 @@ def compare_clusterings(ypred_1=None,ypred_2=None):
   #h,c,v = 0,0,0 # you need to write your code to find proper values
   return h,c,v
 ###### PART 2 ######
-
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
+def get_data_mnist():
+  X,y = load_digits(return_X_y=True)
+  #print(X.shape)
+  return X,y
 def build_lr_model(X=None, y=None):
-  pass
-  lr_model = None
-  # write your code...
-  # Build logistic regression, refer to sklearn
+  
+  lr_model = LogisticRegression(random_state=0,max_iter=1000).fit(X, y)
   return lr_model
 
 def build_rf_model(X=None, y=None):
-  pass
-  rf_model = None
+  
+  rf_model = RandomForestClassifier(n_estimators=100).fit(X,y)
+  
   # write your code...
   # Build Random Forest classifier, refer to sklearn
   return rf_model
 
 def get_metrics(model=None,X=None,y=None):
-  pass
+  
+  y_pred = model.predict(X)
+  acc = accuracy_score(y, y_pred)
+  print('Accuracy: %f' % accuracy)
+  # precision tp / (tp + fp)
+  prec = precision_score(y, y_pred)
+  print('Precision: %f' % precision)
+  # recall: tp / (tp + fn)
+  rec = recall_score(y, y_pred)
+  print('Recall: %f' % recall)
+  # f1: 2 tp / (2 tp + fp + fn)
+  f1 = f1_score(y, y_pred)
+  print('F1 score: %f' % f1)
   # Obtain accuracy, precision, recall, f1score, auc score - refer to sklearn metrics
-  acc, prec, rec, f1, auc = 0,0,0,0,0
+  #acc, prec, rec, f1, auc = 0,0,0,0,0
   # write your code here...
   return acc, prec, rec, f1, auc
 
