@@ -30,14 +30,14 @@ def get_data_circles(n_points=100):
   X,y = make_circles(n_samples=n_points,noise=0.05)
   # write your code here
   # Refer to sklearn data sets
-  X, y = None
+ 
   # write your code ...
   return X,y
 
 def get_data_mnist():
   from sklearn.datasets import load_digits
   X,y= load_digits()
-  pass
+  
   
   # write your code ...
   return X,y
