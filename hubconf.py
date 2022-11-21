@@ -79,12 +79,12 @@ def get_data_mnist():
   return X,y
 def build_lr_model(X=None, y=None):
   
-  lr_model = LogisticRegression(random_state=0,max_iter=1000).fit(X, y)
+  lr_model = LogisticRegression().fit(X, y)
   return lr_model
 
 def build_rf_model(X=None, y=None):
   
-  rf_model = RandomForestClassifier(n_estimators=100).fit(X,y)
+  rf_model = RandomForestClassifier().fit(X,y)
   
   # write your code...
   # Build Random Forest classifier, refer to sklearn
