@@ -126,7 +126,7 @@ def get_paramgrid_rf():
   rf_param_grid= {
     
     'max_depth': [1,10,None],
-    'n_estimators'=[1,10,100],
+    'n_estimators':[1,10,100],
     'criterion': ['gini', 'entropy']
     
 }
