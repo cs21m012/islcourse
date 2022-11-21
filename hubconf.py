@@ -51,7 +51,7 @@ def build_kmeans(X=None,k=10):
   # Refer to sklearn KMeans method
   # this is the KMeans object
   # write your code ...
-  return km
+  return Km
 
 def assign_kmeans(km=None,X=None):
   ypred = km.predict(X)
