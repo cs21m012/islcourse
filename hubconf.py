@@ -5,7 +5,7 @@ from sklearn.datasets import make_circles
 from sklearn.datasets import make_blobs
 from sklearn.datasets import load_digits
 import sklearn.cluster as skl_cluster
-import sklearn.datasets.samples_generator as skl_smpl
+
 from sklearn.metrics.cluster import completeness_score
 from sklearn.metrics.cluster import homogeneity_score
 from sklearn.metrics.cluster import v_measure_score
