@@ -90,9 +90,9 @@ def build_rf_model(X=None, y=None):
   # Build Random Forest classifier, refer to sklearn
   return rf_model
 
-def get_metrics(model=None,X=None,y=None):
+def get_metrics(model1=None,X=None,y=None):
   
-  y_pred = model.predict(X)
+  y_pred = model1.predict(X)
   acc = accuracy_score(y, y_pred)
  
   prec = precision_score(y, y_pred)
